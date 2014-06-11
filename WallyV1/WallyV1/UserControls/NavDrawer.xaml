@@ -1,0 +1,69 @@
+﻿<Grid x:Name="userControl" x:Class="WallyV1.UserControl.NavDrawer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+             mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="450" RenderTransformOrigin="0.5,0.5">
+    <!--FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"-->
+
+    <Grid.Resources>
+        <Storyboard x:Name="SlideNavBarOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="userControl">
+                <SplineDoubleKeyFrame KeyTime="0" Value="-400"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="SlideNavBarClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="userControl">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0" Value="-400"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Grid.Resources>
+    <Grid.RenderTransform>
+        <CompositeTransform/>
+    </Grid.RenderTransform>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent" Width="450" >
+        <!--<Grid.RenderTransform>
+            <CompositeTransform x:Name="NavDrawTransform" />
+        </Grid.RenderTransform>
+        <toolkit:GestureService.GestureListener>
+            <toolkit:GestureListener
+                DragDelta="GestureListener_DragDelta"
+                DragCompleted="GestureListener_DragCompleted"
+                />
+        </toolkit:GestureService.GestureListener>-->
+        <Grid Width="405"  HorizontalAlignment="Left" Background="#333333">
+            
+            <StackPanel Orientation="Vertical" Margin="0,7,5,0">
+                
+                <!-- Write Cost-->
+                <Grid Tag="WriteCostPage" Margin="0,0,0,5" Tap="NavigateToPage">
+                    <Image Source="/Assets/menu write cost.png"/>
+                </Grid>
+                <Grid Tag="WriteCostPage" Margin="0,0,0,5" Tap="NavigateToPage">
+                    <Image Source="/Assets/menu your cost.png"/>
+                </Grid>
+                <Grid Tag="WriteCostPage" Margin="0,0,0,5" Tap="NavigateToPage">
+                    <Image Source="/Assets/menu balance.png"/>
+                </Grid>
+                <Grid Tag="WriteCostPage" Margin="0,0,0,5" Tap="NavigateToPage">
+                    <Image Source="/Assets/menu isolated cash.png"/>
+                </Grid>
+                <Grid Tag="WriteCostPage" Margin="0,0,0,5" Tap="NavigateToPage">
+                    <Image Source="/Assets/menu wishlist.png"/>
+                </Grid>
+                <Grid Tag="WriteCostPage" Margin="0,0,0,5" Tap="NavigateToPage">
+                    <Image Source="/Assets/menu about.png"/>
+                </Grid>
+                
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Grid>

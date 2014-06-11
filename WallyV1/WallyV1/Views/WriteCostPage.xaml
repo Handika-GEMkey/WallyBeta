@@ -1,0 +1,78 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="WallyV1.WriteCostPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    xmlns:WallyV1="clr-namespace:WallyV1.UserControl"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+   
+    shell:SystemTray.IsVisible="False" >
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <StackPanel>
+        
+
+        <!-- Title Menu -->
+        <Grid Grid.Row="0" Background="#8CD1B9" Height="100">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="#81CDB2" Tap="Navigate_sidebar">
+                <Image Source="/Assets/button_navside.png" Width="64" Height="61" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15,0,0,0" />
+            </Grid>
+            <Grid Grid.Column="1">
+                <Image Source="/Assets/Wally_title.png" Stretch="UniformToFill" Width="138" Height="65" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="70,0,0,0"/>
+            </Grid>
+
+
+        </Grid>
+        <!---->
+        
+        <Border Grid.Row="1" Background="#EC5238" Height="5"/>
+        
+        <!-- Body Grid -->
+        <Grid Grid.Row="2" Background="#EFEFF2" Height="695">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Height="150">
+                <Image Source="/Assets/notif_board.png" Stretch="Fill" Height="100" Width="400"/>
+                <TextBlock Text="your balance is" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="160,49,241,85"/>
+                <TextBlock Text="RP.500000" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="244,40,147,83"/>
+                <TextBlock Text="write your cost here" FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="192,0,179,62" Width="109"/>
+            </Grid>
+            <Grid Grid.Row="1" >
+
+            </Grid>
+
+
+        </Grid>
+     
+        </StackPanel>
+
+    <WallyV1:NavDrawer x:Name="NavDrawer" HorizontalAlignment="Left" Margin="-400,0,0,0" Width="444">
+            <WallyV1:NavDrawer.RenderTransform>
+                <CompositeTransform x:Name="NavDrawTransform" />
+            </WallyV1:NavDrawer.RenderTransform>
+            <toolkit:GestureService.GestureListener>
+                <toolkit:GestureListener
+                DragDelta="GestureListener_DragDelta"
+                DragCompleted="GestureListener_DragCompleted"
+                />
+            </toolkit:GestureService.GestureListener>
+        </WallyV1:NavDrawer>
+
+
+    </Grid>
+</phone:PhoneApplicationPage>
